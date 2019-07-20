@@ -4,14 +4,21 @@ import React from "react";
 
 function SearchForm(props) {
   return (
-    <div className="row" style={{
-      padding: "40px 30px"
-    }}>
+    <div
+      className="row"
+      style={{
+        padding: "40px 30px",
+        color: "white"
+      }}
+    >
       <form className="col s6">
         <div className="row">
           <div className="input-field">
             <label htmlFor="search">Search:</label>
             <input
+              style={{
+                color: "white"
+              }}
               onChange={props.handleInputChange}
               value={props.search}
               name="search"

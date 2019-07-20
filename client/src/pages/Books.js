@@ -32,7 +32,7 @@ class Books extends Component {
     API.saveBook({
       image: book.volumeInfo.imageLinks.thumbnail,
       title: book.volumeInfo.title,
-      author: [book.volumeInfo.authors],
+      author: book.volumeInfo.authors,
       synopsis: book.volumeInfo.description,
       link: book.volumeInfo.previewLink,
       src: book.volumeInfo.title
