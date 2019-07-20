@@ -32,9 +32,10 @@ class Books extends Component {
     API.saveBook({
       image: book.volumeInfo.imageLinks.thumbnail,
       title: book.volumeInfo.title,
-      author: book.volumeInfo.authors.join(", "),
+      author: [book.volumeInfo.authors],
       synopsis: book.volumeInfo.description,
-      link: book.volumeInfo.previewLink
+      link: book.volumeInfo.previewLink,
+      src: book.volumeInfo.title
     })
       .then(res => this.searchBooks(this.state.search))
       .catch(err => console.log(err));

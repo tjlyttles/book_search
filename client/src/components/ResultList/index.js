@@ -10,17 +10,20 @@ function ResultList(props) {
               <div className="card-image">
                 <img
                   alt={result.volumeInfo.title}
-                  src={result.volumeInfo.imageLinks.thumbnail}
+                  src={
+                    "imageLinks" in result.volumeInfo
+                      ? result.volumeInfo.imageLinks.thumbnail
+                      : ""
+                  }
                 />
               </div>
               <div className="card-stacked">
                 <div className="card-content">
                   <h4>{result.volumeInfo.title}</h4>
-                  <h6>
-                    By:
-                    <br /> <br />
-                    {result.volumeInfo.authors.join(", ")}
-                  </h6>
+                  <h6>By: </h6>
+                  {"authors" in result.volumeInfo
+                    ? result.volumeInfo.authors.map(author => <h6>{author}</h6>)
+                    : ""}
                   <blockquote>
                     <p>{result.volumeInfo.description}</p>
                   </blockquote>

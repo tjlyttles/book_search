@@ -54,7 +54,6 @@ class Detail extends Component {
                         <h6>
                           {" "}
                           By:
-                          <br /> <br />
                           {result.author}
                         </h6>
                         <blockquote>
