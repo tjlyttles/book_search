@@ -17,7 +17,8 @@ module.exports = {
   },
   create: function(req, res) {
     db.Book
-      .create(req.body)
+      .updateMany({title: req.body.title},{$set: {image: req.body.image, title: req.body.title,
+      author: req.body.authors, synopsis: req.body.synopsis, link: req.body.link, src: req.body.src}}, {upsert: true})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
